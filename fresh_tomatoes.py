@@ -20,6 +20,13 @@ main_page_head = '''
         body {
             padding-top: 80px;
         }
+        .navbar {
+            background-color: #db5a42;
+        }
+        .navbar .navbar-brand {
+            color: #ffffff;
+        }
+
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -109,7 +116,7 @@ main_page_content = '''
 
     <!-- Main Page Content -->
     <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Fresh Tomatoes Video Trailers</a>
@@ -135,14 +142,7 @@ video_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="220" height="342">
     <h2>{title}</h2>
-</div>
-'''
-
-# A single series entry html template
-series_title_content= '''
-<div class="col-md-6 col-lg-4 series-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{series_title}</h2>
+    <h4>Rating: {rating}</h4>
 </div>
 '''
 
@@ -163,7 +163,8 @@ def create_video_tiles_content(videos):
         content += video_tile_content.format(
             title=video.title,
             poster_image_url=video.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            rating=video.rating
         )
     return content
 
