@@ -7,7 +7,7 @@ to the site.
 
 ##Installation
 Make sure you have Python 2.7 installed.
-Run entertainment_center.py by running on Mac:
+Run entertainment_center.py. On Mac run by:
 ~~~
 python entertainment_center.py
 ~~~
